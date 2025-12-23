@@ -252,27 +252,61 @@
         }
         
         /* About Section */
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
             margin-top: 50px;
         }
         
-        .about-card {
-            text-align: center;
-            padding: 30px 20px;
+        .about-image {
+            flex: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 500px;
+            background: linear-gradient(135deg, var(--accent1), var(--accent2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
-        .about-icon {
-            font-size: 3rem;
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+        }
+        
+        .about-text p {
             margin-bottom: 20px;
-            color: var(--accent1);
+            font-size: 1.1rem;
         }
         
-        .about-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+        .about-values {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .value-card {
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .value-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--accent1);
         }
         
         /* Partner Section */
@@ -290,8 +324,8 @@
             border-radius: 15px;
             margin-bottom: 30px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            max-width: 300px;
-            height: 150px;
+            max-width: 500px;
+            height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -303,47 +337,102 @@
         }
         
         .partner-desc {
-            max-width: 700px;
+            max-width: 800px;
             text-align: center;
             font-size: 1.1rem;
         }
         
-        /* Competition Structure */
-        .structure {
+        /* Competition Structure - Two Phases */
+        .phases-container {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 60px;
-            margin-top: 50px;
+            justify-content: space-between;
+            gap: 40px;
+            margin-top: 60px;
             flex-wrap: wrap;
         }
         
-        .phase-card {
-            width: 300px;
-            text-align: center;
+        .phase-card-large {
+            flex: 1;
+            min-width: 300px;
+            padding: 40px;
+            border-radius: 25px;
+            background: linear-gradient(145deg, rgba(36, 47, 73, 0.8), rgba(27, 30, 47, 0.9));
             position: relative;
+            overflow: hidden;
         }
         
         .phase-number {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--accent2), var(--accent1));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin: 0 auto 20px;
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--accent1);
+            margin-bottom: 15px;
+            line-height: 1;
         }
         
-        .phase-connector {
-            width: 100px;
-            height: 5px;
-            background: linear-gradient(90deg, var(--accent1), transparent);
+        .phase-title {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            color: var(--light);
+        }
+        
+        .phase-subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--accent1);
+        }
+        
+        .phase-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        /* Competition Journey */
+        .journey-container {
+            max-width: 900px;
+            margin: 80px auto 0;
+            position: relative;
+        }
+        
+        .journey-line {
             position: absolute;
-            top: 30px;
-            right: -80px;
+            left: 50px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--accent1), var(--accent2));
+            transform: translateX(-50%);
+        }
+        
+        .journey-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 50px;
+            position: relative;
+            padding-left: 100px;
+        }
+        
+        .journey-marker {
+            position: absolute;
+            left: 44px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--accent2);
+            border-radius: 50%;
+            border: 4px solid var(--primary);
+            box-shadow: 0 0 0 3px var(--accent2);
+        }
+        
+        .journey-content {
+            padding: 30px;
+            border-radius: 20px;
+            width: 100%;
+        }
+        
+        .journey-title {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--accent1);
         }
         
         /* Timeline Section */
@@ -611,6 +700,15 @@
                 font-size: 2.5rem;
             }
             
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                width: 100%;
+                height: 400px;
+            }
+            
             .timeline-line {
                 left: 30px;
             }
@@ -623,15 +721,24 @@
             .timeline-marker {
                 left: 30px;
             }
-            
-            .phase-connector {
-                display: none;
-            }
         }
         
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(27, 30, 47, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 20px;
+                gap: 20px;
+            }
+            
+            .nav-links.active {
+                display: flex;
             }
             
             .mobile-toggle {
@@ -655,6 +762,26 @@
                 font-size: 2rem;
             }
             
+            .phase-card-large {
+                width: 100%;
+            }
+            
+            .phases-container {
+                flex-direction: column;
+            }
+            
+            .journey-item {
+                padding-left: 70px;
+            }
+            
+            .journey-line {
+                left: 35px;
+            }
+            
+            .journey-marker {
+                left: 29px;
+            }
+            
             .countdown {
                 flex-wrap: wrap;
             }
@@ -675,6 +802,15 @@
             
             .hero {
                 padding-top: 140px;
+            }
+            
+            .about-values {
+                grid-template-columns: 1fr;
+            }
+            
+            .partner-logo {
+                height: 150px;
+                padding: 20px;
             }
         }
         
@@ -718,7 +854,8 @@
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
                 <a href="#partners">Partners</a>
-                <a href="#structure">Structure</a>
+                <a href="#phases">Phases</a>
+                <a href="#journey">Journey</a>
                 <a href="#timeline">Timeline</a>
                 <a href="#benefits">Benefits</a>
                 <a href="#faq">FAQ</a>
@@ -748,41 +885,45 @@
     <section id="about" class="about">
         <div class="container">
             <div class="section-header">
-                <h2>About BrainLink</h2>
-                <p>Connecting students from business and engineering backgrounds with real-world challenges from partner companies to drive innovation and collaboration.</p>
+                <h2>What is BrainLink?</h2>
+                <p>An innovation competition that creates a bridge between universities and companies, encouraging creativity, collaboration, and applied learning.</p>
             </div>
             
-            <div class="about-grid">
-                <div class="glass-card about-card fade-in">
-                    <div class="about-icon">
-                        <i class="fas fa-users"></i>
+            <div class="about-content fade-in">
+                <div class="about-image">
+                    <!-- Placeholder for Picture1.png -->
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #1B1E2F, #242F49); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 700;">
+                        <div style="text-align: center; padding: 20px;">
+                            <i class="fas fa-brain" style="font-size: 5rem; margin-bottom: 20px; color: var(--accent1);"></i>
+                            <div>Picture1.png</div>
+                            <div style="font-size: 1rem; margin-top: 10px; opacity: 0.8;">BrainLink Visual</div>
+                        </div>
                     </div>
-                    <h3>Cross-disciplinary Collaboration</h3>
-                    <p>Business and engineering students work together to solve complex problems.</p>
                 </div>
                 
-                <div class="glass-card about-card fade-in">
-                    <div class="about-icon">
-                        <i class="fas fa-building"></i>
+                <div class="about-text">
+                    <h2>An innovation competition bringing together business and engineering students to solve real problems proposed by partner companies.</h2>
+                    <p>BrainLink encourages creativity, collaboration, and applied learning through teamwork and mentorship. Students apply their knowledge while companies gain fresh perspectives and access to future talent.</p>
+                    <p>This competition serves as a practical platform for students to demonstrate their skills and for companies to identify potential future employees. The competition targets university students from both business and engineering disciplines, fostering interdisciplinary collaboration that mirrors real-world business challenges.</p>
+                    
+                    <div class="about-values">
+                        <div class="value-card">
+                            <h4>Collaboration</h4>
+                            <p>Teams of business and engineering students work together to develop comprehensive solutions.</p>
+                        </div>
+                        <div class="value-card">
+                            <h4>Innovation</h4>
+                            <p>Encouraging creative problem-solving and out-of-the-box thinking for real business challenges.</p>
+                        </div>
+                        <div class="value-card">
+                            <h4>Excellence</h4>
+                            <p>Striving for high-quality solutions through research, analysis, and professional presentation.</p>
+                        </div>
+                        <div class="value-card">
+                            <h4>Real Impact</h4>
+                            <p>Solutions with practical applications that can make a tangible difference for partner companies.</p>
+                        </div>
                     </div>
-                    <h3>Real Company Challenges</h3>
-                    <p>Tackle actual business problems provided by our industry partners.</p>
-                </div>
-                
-                <div class="glass-card about-card fade-in">
-                    <div class="about-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>Mentorship Opportunities</h3>
-                    <p>Receive guidance from industry professionals and academic experts.</p>
-                </div>
-                
-                <div class="glass-card about-card fade-in">
-                    <div class="about-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h3>Innovation Focus</h3>
-                    <p>Develop creative solutions that push the boundaries of what's possible.</p>
                 </div>
             </div>
         </div>
@@ -792,42 +933,108 @@
     <section id="partners" class="partners">
         <div class="container">
             <div class="section-header">
-                <h2>Our Partners</h2>
-                <p>Collaborating with industry leaders to bring real-world challenges to the competition</p>
+                <h2>Our Partner</h2>
+                <p>BrainLink is proud to partner with industry leaders who provide real-world challenges and mentorship.</p>
             </div>
             
             <div class="partner-main fade-in">
                 <div class="partner-logo">
-                    <!-- Henkel logo placeholder -->
-                    <div style="font-size: 2.5rem; font-weight: 800; color: #1B1E2F;">HENKEL</div>
+                    <!-- Placeholder for 1200px-Henkel-Logo.svg.png -->
+                    <div style="width: 100%; height: 100%; background: white; display: flex; align-items: center; justify-content: center; color: #1B1E2F; font-size: 2rem; font-weight: 800; text-align: center;">
+                        <div>
+                            <div style="font-size: 3rem; margin-bottom: 10px;">HENKEL</div>
+                            <div style="font-size: 1rem; color: #666;">1200px-Henkel-Logo.svg.png</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="partner-desc glass-card">
-                    <p>Henkel Algeria is proud to be the main partner for BrainLink 2025, providing real-world business challenges and mentorship opportunities for participating students. Together, we're fostering the next generation of innovators.</p>
+                    <h3 style="color: var(--accent1); margin-bottom: 20px;">Henkel Algeria</h3>
+                    <p>Henkel operates worldwide with leading brands and technologies in three business areas: Laundry & Home Care, Beauty Care, and Adhesive Technologies. Founded in 1876, Henkel looks back on more than 140 years of success.</p>
+                    <p style="margin-top: 15px;">Through this partnership, Henkel Algeria provides real business challenges for students to solve, offering valuable industry insights and access to experienced mentors. This collaboration creates a direct pipeline between academic excellence and industry needs.</p>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Competition Structure -->
-    <section id="structure" class="structure-section">
+    <!-- Competition Phases -->
+    <section id="phases" class="phases">
         <div class="container">
             <div class="section-header">
-                <h2>Competition Structure</h2>
-                <p>A two-phase journey from concept to final solution</p>
+                <h2>Competition Phases</h2>
+                <p>The competition unfolds in two exciting phases, each designed to challenge participants and showcase their innovative solutions.</p>
             </div>
             
-            <div class="structure">
-                <div class="glass-card phase-card fade-in">
-                    <div class="phase-number">1</div>
-                    <div class="phase-connector"></div>
-                    <h3>Semifinals</h3>
-                    <p>Teams submit initial proposals addressing the challenge brief. Top teams are selected to advance to the final round based on innovation, feasibility, and presentation.</p>
+            <div class="phases-container">
+                <div class="phase-card-large glass-card fade-in">
+                    <div class="phase-number">01</div>
+                    <h2 class="phase-title">Semifinals</h2>
+                    <h3 class="phase-subtitle">Initial Presentations</h3>
+                    <div class="phase-description">
+                        <p>Teams present their initial solutions to a panel of judges. The best teams from this round will advance to the finals. This phase focuses on the core concept, feasibility, and potential impact of the proposed solutions.</p>
+                    </div>
                 </div>
                 
-                <div class="glass-card phase-card fade-in">
-                    <div class="phase-number">2</div>
-                    <h3>Finals</h3>
-                    <p>Finalist teams develop their solutions in-depth, with mentorship support, and present to a panel of industry experts and academic judges.</p>
+                <div class="phase-card-large glass-card fade-in">
+                    <div class="phase-number">02</div>
+                    <h2 class="phase-title">Finals</h2>
+                    <h3 class="phase-subtitle">Expert Panel Judging</h3>
+                    <div class="phase-description">
+                        <p>Finalists present refined solutions to an expert panel including representatives from Henkel Algeria. This phase evaluates implementation strategy, business viability, and presentation quality to determine the winning team.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Competition Journey -->
+    <section id="journey" class="journey">
+        <div class="container">
+            <div class="section-header">
+                <h2>Competition Journey</h2>
+                <p>The complete journey from registration to awards ceremony</p>
+            </div>
+            
+            <div class="journey-container">
+                <div class="journey-line"></div>
+                
+                <div class="journey-item fade-in">
+                    <div class="journey-marker"></div>
+                    <div class="glass-card journey-content">
+                        <h3 class="journey-title">Registration Opens</h3>
+                        <p>Teams register and receive the competition brief with problem statements from our partner company. Kickoff webinar introduces the challenge and rules.</p>
+                    </div>
+                </div>
+                
+                <div class="journey-item fade-in">
+                    <div class="journey-marker"></div>
+                    <div class="glass-card journey-content">
+                        <h3 class="journey-title">Preparation Phase</h3>
+                        <p>Teams work on their solutions with mentorship sessions, workshops on design thinking and business modeling, and check-ins with advisors.</p>
+                    </div>
+                </div>
+                
+                <div class="journey-item fade-in">
+                    <div class="journey-marker"></div>
+                    <div class="glass-card journey-content">
+                        <h3 class="journey-title">Semifinals</h3>
+                        <p>Teams present their innovative solutions to a panel of judges. Top teams are selected to advance to the finals based on creativity, feasibility, and presentation quality.</p>
+                    </div>
+                </div>
+                
+                <div class="journey-item fade-in">
+                    <div class="journey-marker"></div>
+                    <div class="glass-card journey-content">
+                        <h3 class="journey-title">Finals Preparation</h3>
+                        <p>Finals teams refine their solutions with intensive mentorship, prototype development, and presentation coaching from industry experts.</p>
+                    </div>
+                </div>
+                
+                <div class="journey-item fade-in">
+                    <div class="journey-marker"></div>
+                    <div class="glass-card journey-content">
+                        <h3 class="journey-title">Finals & Awards Ceremony</h3>
+                        <p>Final presentations to an expert panel including executives from Henkel Algeria. Winners are announced and awarded at a special ceremony with networking opportunities.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1076,8 +1283,8 @@
                         <li><a href="#home" style="color: white; text-decoration: none; line-height: 2.5;">Home</a></li>
                         <li><a href="#about" style="color: white; text-decoration: none; line-height: 2.5;">About</a></li>
                         <li><a href="#partners" style="color: white; text-decoration: none; line-height: 2.5;">Partners</a></li>
-                        <li><a href="#timeline" style="color: white; text-decoration: none; line-height: 2.5;">Timeline</a></li>
-                        <li><a href="#faq" style="color: white; text-decoration: none; line-height: 2.5;">FAQ</a></li>
+                        <li><a href="#phases" style="color: white; text-decoration: none; line-height: 2.5;">Phases</a></li>
+                        <li><a href="#journey" style="color: white; text-decoration: none; line-height: 2.5;">Journey</a></li>
                     </ul>
                 </div>
                 
@@ -1324,12 +1531,13 @@
             const navLinks = document.querySelector('.nav-links');
             
             mobileToggle.addEventListener('click', () => {
-                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+                navLinks.classList.toggle('active');
             });
             
             // Adjust for window resize
             window.addEventListener('resize', () => {
                 if (window.innerWidth > 768) {
+                    navLinks.classList.remove('active');
                     navLinks.style.display = 'flex';
                 } else {
                     navLinks.style.display = 'none';
@@ -1355,7 +1563,7 @@
                         
                         // Close mobile menu if open
                         if (window.innerWidth <= 768) {
-                            document.querySelector('.nav-links').style.display = 'none';
+                            document.querySelector('.nav-links').classList.remove('active');
                         }
                     }
                 });
